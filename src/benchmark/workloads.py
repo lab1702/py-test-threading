@@ -35,7 +35,8 @@ def count_primes(limit: int) -> int:
 
 def sort_large_list(size: int) -> list:
     """Sort a large randomly-generated list - tests list operations."""
-    data = [random.randint(0, size) for _ in range(size)]
+    rng = random.Random()  # Thread-local instance to avoid global state contention
+    data = [rng.randint(0, size) for _ in range(size)]
     return sorted(data)
 
 
